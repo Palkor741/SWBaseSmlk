@@ -1542,7 +1542,7 @@ static int tcp_peek_sndq(struct sock *sk, struct msghdr *msg, int len)
 		err = skb_copy_datagram_msg(skb, 0, msg, skb->len);
 		if (err)
 			break;
-		perf_net_pkt_trace(sk, skb, skb->len);
+		//perf_net_pkt_trace(sk, skb, skb->len);
 		copied += skb->len;
 	}
 
@@ -1987,7 +1987,7 @@ int tcp_recvmsg(struct sock *sk, struct msghdr *msg, size_t len, int nonblock,
 					copied = -EFAULT;
 				break;
 			}
-			perf_net_pkt_trace(sk, skb, used);
+			//perf_net_pkt_trace(sk, skb, used);
 		}
 
 		*seq += used;
