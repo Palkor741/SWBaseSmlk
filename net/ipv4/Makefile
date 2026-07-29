@@ -74,4 +74,4 @@ ifeq ($(CONFIG_BPF_JIT),y)
 obj-$(CONFIG_BPF_SYSCALL) += bpf_tcp_ca.o
 endif
 
-ccflags-y += -I$(srctree)/drivers/misc/mediatek/perf/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/perf/obj-$(CONFIG_TCP_CONG_BBRPLUS) += tcp_bbrplus.o
