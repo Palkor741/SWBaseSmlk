@@ -765,3 +765,8 @@ config TCP_MD5SIG
 	  on the Internet.
 
 	  If unsure, say N.
+
+config DEFAULT_BBRPLUS
+	bool "BBRplus"
+	depends on TCP_CONG_BBRPLUS=y
+
