@@ -370,23 +370,16 @@ static void bbr_set_pacing_rate(struct sock *sk, u32 bw, int gain)
 }
 
 /* Return count of segments we want in the skbs we send, or 0 for default. */
-/*static u32 bbr_tso_segs_goal(struct sock *sk)
+static u32 bbr_tso_segs_goal(struct sock *sk)
 {
-    struct bbr *bbr = inet_csk_ca(sk);
-
-    return bbr->tso_segs_goal;
+	return 0;
 }
 
 static void bbr_set_tso_segs_goal(struct sock *sk)
 {
-    struct tcp_sock *tp = tcp_sk(sk);
-    struct bbr *bbr = inet_csk_ca(sk);
-    u32 min_segs;
+	/* disabled for kernel 4.14 */
+}
 
-    min_segs = sk->sk_pacing_rate < (bbr_min_tso_rate >> 3) ? 1 : 2;
-    bbr->tso_segs_goal = min(tcp_tso_segs(sk, tp->mss_cache, min_segs),
-                 0x7FU);
-}/*
 
 /* Save "last known good" cwnd so we can restore it after losses or PROBE_RTT */
 static void bbr_save_cwnd(struct sock *sk)
