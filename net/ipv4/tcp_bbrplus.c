@@ -384,7 +384,7 @@ static void bbr_set_tso_segs_goal(struct sock *sk)
     u32 min_segs;
 
     min_segs = sk->sk_pacing_rate < (bbr_min_tso_rate >> 3) ? 1 : 2;
-    bbr->tso_segs_goal = min(tcp_tso_autosize(sk, tp->mss_cache, min_segs),
+    bbr->tso_segs_goal = min(tcp_tso_segs(sk, tp->mss_cache, min_segs),
                  0x7FU);
 }
 
@@ -1144,7 +1144,7 @@ static struct tcp_congestion_ops tcp_bbr_cong_ops __read_mostly = {
     .undo_cwnd  = bbr_undo_cwnd,
     .cwnd_event = bbr_cwnd_event,
     .ssthresh   = bbr_ssthresh,
-    .tso_segs_goal  = bbr_tso_segs_goal,
+    //.tso_segs_goal  = bbr_tso_segs_goal,
     .get_info   = bbr_get_info,
     .set_state  = bbr_set_state,
 };
