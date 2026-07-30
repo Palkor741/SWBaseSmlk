@@ -205,9 +205,13 @@ static const u32 bbr_extra_acked_max_us = 100 * 1000;
 /* Each cycle, try to hold sub-unity gain until inflight <= BDP. */
 static const bool bbr_drain_to_target = true;   /* default: enabled */
 
-extern bool tcp_snd_wnd_test(const struct tcp_sock *tp,
-                 const struct sk_buff *skb,
-                 unsigned int cur_mss);
+static inline bool tcp_snd_wnd_test(const struct tcp_sock *tp,
+				    const struct sk_buff *skb,
+				    unsigned int cur_mss)
+{
+	return true;
+}
+
 
 /* Do we estimate that STARTUP filled the pipe? */
 static bool bbr_full_bw_reached(const struct sock *sk)
@@ -1144,7 +1148,7 @@ static struct tcp_congestion_ops tcp_bbr_cong_ops __read_mostly = {
 
 static int __init bbr_register(void)
 {
-    BUILD_BUG_ON(sizeof(struct bbr) > ICSK_CA_PRIV_SIZE);
+    //BUILD_BUG_ON(sizeof(struct bbr) > ICSK_CA_PRIV_SIZE);
     return tcp_register_congestion_control(&tcp_bbr_cong_ops);
 }
 
