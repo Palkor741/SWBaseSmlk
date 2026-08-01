@@ -3724,7 +3724,7 @@ void __init tcp_init(void)
 
 	sysctl_tcp_rmem[0] = SK_MEM_QUANTUM;
 	sysctl_tcp_rmem[1] = 131072;
-	sysctl_tcp_rmem[2] = max(131072, max_rshare);
+	sysctl_tcp_rmem[2] = 4194304;
 
 	pr_info("Hash tables configured (established %u bind %u)\n",
 		tcp_hashinfo.ehash_mask + 1, tcp_hashinfo.bhash_size);
