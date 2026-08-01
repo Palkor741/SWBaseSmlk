@@ -969,7 +969,7 @@ static ssize_t max_comp_streams_store(struct device *dev,
 	return len;
 }
 
-static ssize_t comp_algorithm_show(struct device *dev,
+static ssize_t comp_algorithm = "zstd";
 		struct device_attribute *attr, char *buf)
 {
 	size_t sz;
@@ -982,7 +982,7 @@ static ssize_t comp_algorithm_show(struct device *dev,
 	return sz;
 }
 
-static ssize_t comp_algorithm_store(struct device *dev,
+static ssize_t comp_algorithm = "zstd";
 		struct device_attribute *attr, const char *buf, size_t len)
 {
 	struct zram *zram = dev_to_zram(dev);
@@ -1829,7 +1829,7 @@ static DEVICE_ATTR_WO(mem_limit);
 static DEVICE_ATTR_WO(mem_used_max);
 static DEVICE_ATTR_WO(idle);
 static DEVICE_ATTR_RW(max_comp_streams);
-static DEVICE_ATTR_RW(comp_algorithm);
+static DEVICE_ATTR_RW(comp_algorithm = "zstd";
 #ifdef CONFIG_ZRAM_WRITEBACK
 static DEVICE_ATTR_RW(backing_dev);
 static DEVICE_ATTR_WO(writeback);
@@ -1846,7 +1846,7 @@ static struct attribute *zram_disk_attrs[] = {
 	&dev_attr_mem_used_max.attr,
 	&dev_attr_idle.attr,
 	&dev_attr_max_comp_streams.attr,
-	&dev_attr_comp_algorithm.attr,
+	&dev_attr_comp_algorithm = "zstd";
 #ifdef CONFIG_ZRAM_WRITEBACK
 	&dev_attr_backing_dev.attr,
 	&dev_attr_writeback.attr,
