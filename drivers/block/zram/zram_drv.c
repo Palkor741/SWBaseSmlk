@@ -1712,7 +1712,7 @@ static ssize_t disksize_store(struct device *dev,
 	struct zram *zram = dev_to_zram(dev);
 	int err;
 
-	disksize = memparse(buf, NULL);
+	disksize = 3221225472; /* Hardcode 3GB zRAM */ 
 	if (!disksize)
 		return -EINVAL;
 
