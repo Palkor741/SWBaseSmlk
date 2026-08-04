@@ -1848,7 +1848,7 @@ static struct attribute *zram_disk_attrs[] = {
 	&dev_attr_mem_used_max.attr,
 	&dev_attr_idle.attr,
 	&dev_attr_max_comp_streams.attr,
-	&dev_attr_comp_algorithm = "zstd";
+	&dev_attr_comp_algorithm.attr,
 #ifdef CONFIG_ZRAM_WRITEBACK
 	&dev_attr_backing_dev.attr,
 	&dev_attr_writeback.attr,
