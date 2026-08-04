@@ -43,7 +43,7 @@ static DEFINE_MUTEX(zram_index_mutex);
 
 static int zram_major;
 static struct zram *zram_devices;
-static const char *default_compressor = IS_ENABLED(CONFIG_CRYPTO_ZSTD) ? "zstd" : IS_ENABLED(CONFIG_CRYPTO_LZ4) ? "lz4" : "lzo";
+static const char *default_compressor = "zstd";
 
 /* Module params (documentation at end) */
 static unsigned int num_devices = 1;
@@ -969,8 +969,9 @@ static ssize_t max_comp_streams_store(struct device *dev,
 	return len;
 }
 
-static ssize_t comp_algorithm = "zstd";
-		struct device_attribute *attr, char *buf)
+static ssize_t comp_algorithm_show(struct device *dev,
+                struct device_attribute *attr, char *buf)
+
 {
 	size_t sz;
 	struct zram *zram = dev_to_zram(dev);
@@ -982,8 +983,9 @@ static ssize_t comp_algorithm = "zstd";
 	return sz;
 }
 
-static ssize_t comp_algorithm = "zstd";
-		struct device_attribute *attr, const char *buf, size_t len)
+static ssize_t comp_algorithm_store(struct device *dev,
+                struct device_attribute *attr, const char *buf, size_t len)
+
 {
 	struct zram *zram = dev_to_zram(dev);
 	char compressor[ARRAY_SIZE(zram->compressor)];
