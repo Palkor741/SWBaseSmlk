@@ -189,11 +189,6 @@
 		status = "okay";
 	};
 
-	smb1351_charger_mtk:smb1351_charger@55 {
-		compatible = "mediatek,smb1351_charger";
-		reg = <0x55>;
-		status = "okay";
-	};
 
 };
 
