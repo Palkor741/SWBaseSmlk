@@ -365,8 +365,6 @@
 };
 
 
-
-};
 &lk_charger  {
 	/* charging current */
 	ac_charger_current = <1000000>;
