@@ -365,6 +365,30 @@
 };
 
 
+&i2c7 {
+	smb1351-charger@55 {
+		compatible = "qcom,smb1351_charger";
+		reg = <0x55>;
+		interrupt-parent = <&pio>;
+		interrupts = <20 IRQ_TYPE_EDGE_FALLING 20 0>;
+		qcom,recharge-disabled;
+		qcom,bc12_supported;
+		/* qcom,smb1351_susp = <&pio 21 0x0>; */
+		/* mi,connect_therm = <&pio 127 0x0>; */
+
+		charger_name = "primary_chg";
+		/*charger_name = "secondary_chg";*/
+		ichg = <1800000>; /* uA */
+		mivr = <4500000>; /* uV */
+		cv = <4396000>; /* uV */
+		ieoc = <200000>; /* uA */
+		safety_timer = <12>; /* hour */
+		en_st; /* safety timer */
+		/* en_te; */
+		en_wdt;
+	};
+
+};
 &lk_charger  {
 	/* charging current */
 	ac_charger_current = <1000000>;
