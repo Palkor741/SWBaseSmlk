@@ -601,7 +601,7 @@ enum {
 	BATT_STATUS_MAX,
 };
 
-enum hvdcp_status hvdcp_type_tmp;
+enum hvdcp_status hvdcp_type_tmp __attribute__((used));
 int usb_det_flag;
 static int hvdcp_det_count;
 static int hvdcp_rerun_aicl_count;
@@ -2694,7 +2694,7 @@ static int smb1351_check_hv_charging(struct charger_device *chg_dev)
 	return 0;
 }
 
-bool usb_otg;
+bool usb_otg __attribute__((used));
 static int smb1351_enable_otg(struct charger_device *chg_dev, bool en)
 {
 	struct smb1351_charger *chip = dev_get_drvdata(&chg_dev->dev);
