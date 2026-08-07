@@ -254,11 +254,11 @@ static void mcdi_set_timer(int cpu)
 
 	mcdi_cluster.tmr_running = true;
 	mcdi_cluster.owner = cpu;
-
-	RCU_NONIDLE(hrtimer_start(&mcdi_cluster.timer,
+      if (time_us > 0) {
+        RCU_NONIDLE(hrtimer_start(&mcdi_cluster.timer,
 			ns_to_ktime(time_us * NSEC_PER_USEC),
 			HRTIMER_MODE_REL_PINNED));
-
+      }
 	spin_unlock_irqrestore(&mcdi_cluster_spin_lock, flags);
 
 	tick_broadcast_enter();
