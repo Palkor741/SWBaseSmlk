@@ -378,8 +378,8 @@
 
 		charger_name = "primary_chg";
 		/*charger_name = "secondary_chg";*/
-		ichg = <1800000>; /* uA */
-		mivr = <4500000>; /* uV */
+		ichg = <2250000>; /* uA */
+		mivr = <4300000>; /* uV */
 		cv = <4396000>; /* uV */
 		ieoc = <200000>; /* uA */
 		safety_timer = <12>; /* hour */
@@ -391,12 +391,12 @@
 };
 &lk_charger  {
 	/* charging current */
-	ac_charger_current = <1000000>;
-	non_std_ac_charger_current = <1000000>;
+	ac_charger_current = <2050000>;
+	non_std_ac_charger_current = <2050000>;
 
 	/* battery temperature protection */
 	temp_t4_threshold = <60>;
-	temp_t3_threshold = <45>;
+	temp_t3_threshold = <47>;
 	temp_t1_threshold = <0>;
 };
 
@@ -412,10 +412,10 @@
 	usb_charger_current = <500000>;
 	ac_charger_current = <2050000>;
 	ac_charger_input_current = <2050000>;
-	non_std_ac_charger_current = <1000000>;
+	non_std_ac_charger_current = <2050000>;
 	charging_host_charger_current = <1500000>;
-	apple_1_0a_charger_current = <650000>;
-	apple_2_1a_charger_current = <800000>;
+	apple_1_0a_charger_current = <1000000>;
+	apple_2_1a_charger_current = <2050000>;
 	ta_ac_charger_current = <2050000>;
 	hvdcp_charger_current = <3000000>;
 
