@@ -596,28 +596,3 @@ CONFIG_ZRAM=y
 CONFIG_ZRAM_DEF_COMP_ZSTD=y
 CONFIG_ZRAM_DEF_COMP="zstd"
 CONFIG_CRYPTO_ZSTD=y
-# ==========================================
-# MediaTek Power & Battery Driver Configuration
-# ==========================================
-CONFIG_POWER_SUPPLY=y
-CONFIG_MTK_PUMP_EXPRESS_PLUS_SUPPORT=y
-CONFIG_MTK_PUMP_EXPRESS_PLUS_20_SUPPORT=y
-
-
-# Core MFD & Type-C MT6360
-CONFIG_MFD_MT6360_PMU=y
-CONFIG_TCPC_MT6360=y
-
-# Mediatek Charger Subsystem
-CONFIG_MTK_CHARGER=y
-CONFIG_MTK_SMART_BATTERY=y
-CONFIG_MTK_SWITCH_CHARGING=y
-CONFIG_MTK_PUMP_EXPRESS_PLUS=y
-
-
-# Support Subsystem (lld fix eror)
-CONFIG_IIO=y
-CONFIG_IIO_BUFFER=y
-CONFIG_IIO_KFIFO_BUF=y
-CONFIG_CRC8=y
-
