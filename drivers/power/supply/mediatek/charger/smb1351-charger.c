@@ -2061,7 +2061,7 @@ static int smb1351_enable_charging(struct charger_device *chg_dev, bool en)
 	u8 reg = 0, mask = 0;
 	struct smb1351_charger *chip = dev_get_drvdata(&chg_dev->dev);
 
-	pr_err("smb1351 enable status = %d\n", en);
+	pr_debug("smb1351 enable status = %d\n", en);
 	// if (!chip->chip_enable && en) {
 	// 	pr_err("chip is not enable, return.\n");
 	// 	return 0;
@@ -2772,7 +2772,7 @@ static int smb1351_set_float_voltage(struct charger_device *chg_dev, u32 uV)
 		uV = float_max;
 	}
 
-	pr_err("set float voltage %d cycle_count : %d", uV, cycle_count);
+	pr_debug("set float voltage %d cycle_count : %d", uV, cycle_count);
 
 	rc = smb1351_enable_volatile_writes(chip);
 	if (rc) {
